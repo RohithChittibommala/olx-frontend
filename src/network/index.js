@@ -1,7 +1,7 @@
 import Axios from "axios";
 
 const axios = Axios.create({
-  baseURL: "http://localhost:4000",
+  baseURL: process.env.REACT_APP_BACKEND_URL,
 });
 
 axios.interceptors.request.use((config) => {
@@ -9,7 +9,6 @@ axios.interceptors.request.use((config) => {
   config.headers["Authorization"] = `Bearer ${localStorage.getItem("token")}`;
   return config;
 });
-
 const api = {
   login: (data) => axios.post("/login", data),
   register: (data) => axios.post("/register", data),
