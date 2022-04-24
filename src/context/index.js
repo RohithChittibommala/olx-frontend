@@ -10,11 +10,13 @@ const AuthContextProvider = (props) => {
   const [loading, setLoading] = React.useState(true);
 
   React.useEffect(() => {
-    api
-      .getUserData()
-      .then(({ data }) => setUser(data))
-      .catch((err) => {})
-      .finally(() => setLoading(false));
+    if (localStorage.getItem("token")) {
+      api
+        .getUserData()
+        .then(({ data }) => setUser(data))
+        .catch((err) => {})
+        .finally(() => setLoading(false));
+    }
   }, []);
 
   if (loading) return <Loading />;
