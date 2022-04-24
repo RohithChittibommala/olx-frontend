@@ -34,6 +34,7 @@ function UserListings(props) {
                       toast("Listing deleted successfully", {
                         type: "success",
                       });
+                      props.refetch();
                     })
                     .catch((er) => {
                       console.log(er);

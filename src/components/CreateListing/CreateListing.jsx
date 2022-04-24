@@ -28,7 +28,7 @@ function CreateListing() {
   const [imageFile, setImageFile] = React.useState(null);
   const navigate = useNavigate();
 
-  const { mutate } = useMutation(api.createListing, {
+  const { mutate, isLoading } = useMutation(api.createListing, {
     onSuccess: ({ data }) => {
       console.log(data);
       toast("Listing created successfully", { type: "success" });
@@ -110,9 +110,11 @@ function CreateListing() {
           <button
             onClick={formik.handleSubmit}
             type="submit"
-            className="px-4 py-2 text-white my-2 rounded bg-blue-600"
+            className={`px-4 py-2 text-white my-2 rounded bg-blue-600 ${
+              isLoading ? "opacity-50 cursor-not-allowed" : ""
+            }`}
           >
-            Create Listing
+            {isLoading ? "Creating..." : "Create Listing"}
           </button>
         </div>
       </div>

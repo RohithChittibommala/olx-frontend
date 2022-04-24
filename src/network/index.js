@@ -4,7 +4,7 @@ const axios = Axios.create({
   baseURL: process.env.REACT_APP_BACKEND_URL,
 });
 
-console.log(process.env);
+// console.log(process.env);
 
 axios.interceptors.request.use((config) => {
   if (config.headers.Authorization) return config;

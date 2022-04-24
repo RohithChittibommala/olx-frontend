@@ -6,19 +6,19 @@ import UserListings from "../UserListings";
 import UserPurchases from "../UserPurchases";
 
 function Profile() {
-  const { data: user, isLoading } = useQuery(
-    "profile",
-    () => api.getProfile(),
-    {
-      select: ({ data }) => data.user,
-    }
-  );
+  const {
+    data: user,
+    isLoading,
+    refetch,
+  } = useQuery("profile", () => api.getProfile(), {
+    select: ({ data }) => data.user,
+  });
 
   const [activeTab, setActiveTab] = React.useState(0);
 
   if (isLoading) return <Loading />;
 
-  console.log(activeTab);
+  // console.log(activeTab);
 
   //   console.log(user);
 
@@ -63,7 +63,9 @@ function Profile() {
         </div>
 
         <div className="p-2 md:p-4 my-4">
-          {activeTab === 0 && <UserListings listings={user.listings} />}
+          {activeTab === 0 && (
+            <UserListings listings={user.listings} refetch={refetch} />
+          )}
           {activeTab === 1 && <UserPurchases purchases={user.purchases} />}
         </div>
       </div>
