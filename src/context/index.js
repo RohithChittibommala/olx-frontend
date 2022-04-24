@@ -7,7 +7,9 @@ export const AuthContext = React.createContext();
 const AuthContextProvider = (props) => {
   const [user, setUser] = React.useState(null);
 
-  const [loading, setLoading] = React.useState(true);
+  const [loading, setLoading] = React.useState(
+    localStorage.getItem("token") !== null
+  );
 
   React.useEffect(() => {
     if (localStorage.getItem("token")) {
