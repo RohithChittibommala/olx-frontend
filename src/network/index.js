@@ -4,6 +4,8 @@ const axios = Axios.create({
   baseURL: process.env.REACT_APP_BACKEND_URL,
 });
 
+console.log(process.env);
+
 axios.interceptors.request.use((config) => {
   if (config.headers.Authorization) return config;
   config.headers["Authorization"] = `Bearer ${localStorage.getItem("token")}`;
@@ -27,7 +29,7 @@ const api = {
     const formData = new FormData();
     formData.append("file", data);
     formData.append("upload_preset", process.env.REACT_APP_CLOUDINARY_PRESET);
-    return fetch(process.env.REACT_APP_CLOUDINARY_URL, {
+    return fetch("https://api.cloudinary.com/v1_1/rohith/image/upload", {
       body: formData,
       method: "POST",
     })
