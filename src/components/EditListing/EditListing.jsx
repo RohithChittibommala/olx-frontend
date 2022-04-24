@@ -56,11 +56,19 @@ const EditListingForm = ({ listing, id }) => {
   });
 
   function handleSubmit(values) {
+    if (imageFile) {
+      api.uploadImageToCloudinary(imageFile).then((data) => {
+        api.updateListing({ id, ...values, image: data });
+        navigate("/");
+      });
+    }
+
     console.log(values);
     formik.resetForm();
   }
 
   const onImageChange = (e) => {
+    setImageFile(e.target.files[0]);
     setImageURL(URL.createObjectURL(e.target.files[0]));
   };
 
