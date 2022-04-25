@@ -11,6 +11,14 @@ axios.interceptors.request.use((config) => {
   config.headers["Authorization"] = `Bearer ${localStorage.getItem("token")}`;
   return config;
 });
+
+// axios.interceptors.response.use(
+//   (res) => res,
+//   (er) => {
+//     console.log(er.response.data);
+//   }
+// );
+
 const api = {
   login: (data) => axios.post("/login", data),
   register: (data) => axios.post("/register", data),

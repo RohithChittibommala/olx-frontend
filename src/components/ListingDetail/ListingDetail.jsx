@@ -26,6 +26,12 @@ function ListingDetail() {
 
       navigate("/profile");
     },
+
+    onError: (er) => {
+      toast(er?.response?.data?.message || "error occureds", {
+        type: toast?.TYPE.ERROR,
+      });
+    },
   });
 
   if (isLoading) return <Loading />;

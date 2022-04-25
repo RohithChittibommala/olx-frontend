@@ -30,8 +30,12 @@ function CreateListing() {
 
   const { mutate, isLoading } = useMutation(api.createListing, {
     onSuccess: ({ data }) => {
-      console.log(data);
       toast("Listing created successfully", { type: "success" });
+    },
+    onError: (er) => {
+      toast(er?.response?.data?.message || "error occureds", {
+        type: toast?.TYPE.ERROR,
+      });
     },
   });
 

@@ -26,6 +26,12 @@ const Login = () => {
         type: toast.TYPE.SUCCESS,
       });
     },
+
+    onError: (er) => {
+      toast(er?.response?.data?.message || "error occured", {
+        type: toast?.TYPE.ERROR,
+      });
+    },
   });
 
   const formik = useFormik({
