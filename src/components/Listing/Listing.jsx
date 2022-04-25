@@ -4,7 +4,7 @@ function Listing({ image, name, price, ...rest }) {
   return (
     <div className="max-w-sm rounded overflow-hidden shadow-lg ">
       <img
-        className="w-full max-h-52"
+        className="w-full h-[180px] object-contain"
         src={image}
         alt="Sunset in the mountains"
       />

@@ -20,8 +20,8 @@ function Profile() {
 
   return (
     <div className="min-h-screen bg-gray-50 p-2 md:p-8 font-poppins">
-      <div className="flex flex-col space-x-2 space-y-2   md:flex-row p-4 w-full md:w-1/3 mx-auto md:space-x-10 my-8">
-        <div className="h-[120px] w-[123px] rounded-full mx-auto  bg-orange-500 justify-center  items-center flex">
+      <div className="flex flex-col md:space-x-4 md:justify-center space-y-2   md:flex-row p-4 w-full md:w-4/5 mx-auto  my-8">
+        <div className="h-[120px] w-[123px] rounded-full   bg-orange-500 justify-center  items-center flex">
           <p className="text-white uppercase text-7xl ">
             {user.name.charAt(0)}
           </p>
