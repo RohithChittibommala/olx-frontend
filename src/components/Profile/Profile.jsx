@@ -18,14 +18,10 @@ function Profile() {
 
   if (isLoading) return <Loading />;
 
-  // console.log(activeTab);
-
-  //   console.log(user);
-
   return (
     <div className="min-h-screen bg-gray-50 p-2 md:p-8 font-poppins">
-      <div className="flex p-4 md:w-1/3 mx-auto space-x-10 my-8">
-        <div className="h-[120px] w-[123px] rounded-full  bg-orange-500 justify-center  items-center flex">
+      <div className="flex flex-col space-x-2 space-y-2   md:flex-row p-4 w-full md:w-1/3 mx-auto md:space-x-10 my-8">
+        <div className="h-[120px] w-[123px] rounded-full mx-auto  bg-orange-500 justify-center  items-center flex">
           <p className="text-white uppercase text-7xl ">
             {user.name.charAt(0)}
           </p>

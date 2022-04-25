@@ -7,11 +7,11 @@ function UserListings(props) {
   const [listings, setListings] = React.useState(props.listings);
 
   return (
-    <div className="grid grid-cols-4 gap-4 p-4">
+    <div className="grid grid-cols-1 md:grid-cols-4 gap-4 p-4">
       {listings.map((listing) => (
         <div key={listing._id} className="">
           <h2
-            className={`uppercase px-2 py-1 font-semibold inline-block ${
+            className={`uppercase px-2 py-1 my-2 font-semibold inline-block ${
               listing.status === "unsold"
                 ? "bg-yellow-400 text-yellow-800"
                 : "bg-green-400 text-green-800"

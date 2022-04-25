@@ -2,27 +2,33 @@ import React from "react";
 
 function Listing({ image, name, price, ...rest }) {
   return (
-    <div className="w-full aspect-square  my-3  rounded-md border border-gray-300 bg-white transition  cursor-pointer">
-      <div className="w-full">
-        <img
-          className="rounded block h-full w-full aspect-square"
-          src={image}
-          alt="listing"
-        />
-      </div>
+    <div className="max-w-sm rounded overflow-hidden shadow-lg ">
+      <img
+        className="w-full max-h-52"
+        src={image}
+        alt="Sunset in the mountains"
+      />
 
-      <div className=" p-3">
-        <h2 className="font-semibold text-xl font-sans">
-          &#8377;{" "}
-          <span className="font-poppins">
-            {Intl.NumberFormat("en-IN").format(price)}
-          </span>
-        </h2>
-        <h4 className="text-lg text-gray-600">{name}</h4>
+      <div className="border-l-4 border-yellow-400 mt-1">
+        <div className="px-6 py-4  ">
+          <h2 className="font-semibold text-xl  font-open my-2">
+            {" "}
+            &#8377;{" "}
+            <span className="font-poppins">
+              {Intl.NumberFormat("en-IN").format(price)}
+            </span>
+          </h2>
+          <h3 className="text-gray-500 text-md my-2">{name}</h3>
 
-        <h5 className="text-gray-600 text-sm text-right">
-          {/* {new Date(updated_at).toDateString()} */}
-        </h5>
+          <h5 className="text-md text-gray-600 line-clamp-2">
+            {rest.description}
+          </h5>
+        </div>
+        <div className="p-2">
+          <h5 className="text-gray-600 text-xs text-right">
+            {new Date(rest.updatedAt).toDateString()}
+          </h5>
+        </div>
       </div>
     </div>
   );

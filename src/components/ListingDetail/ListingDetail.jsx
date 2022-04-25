@@ -36,8 +36,6 @@ function ListingDetail() {
 
   if (isLoading) return <Loading />;
 
-  console.log(listing);
-
   return (
     <div className="w-full bg-gray-50 min-h-screen p-4 font-poppins">
       <div className="md:w-1/2 mx-auto p-5">
@@ -70,10 +68,13 @@ function ListingDetail() {
           </p>
         </div>
         <button
-          className="py-2 px-4 rounded-md text-white bg-pink-500"
+          className={`py-2 px-4 rounded-md text-white bg-pink-500 ${
+            listing.isPurchased ? "opacity-50 cursor-not-allowed" : ""
+          }`}
+          disabled={isLoading}
           onClick={() => mutate(id)}
         >
-          Make An Offer
+          Purchase
         </button>
       </div>
     </div>

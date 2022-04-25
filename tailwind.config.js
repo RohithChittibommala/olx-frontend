@@ -15,5 +15,5 @@ module.exports = {
     transform: ["group-hover", "hover"],
   },
 
-  plugins: [],
+  plugins: [require("@tailwindcss/line-clamp")],
 };

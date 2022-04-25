@@ -17,7 +17,7 @@
 ## Instructions to setup the project:
 
 ```
-git clone https://github.com/RohithChittibommala/olx-frontend
+git clone https://github.com/RohithChittibommala/olx-frontend.git
 cd olx-frontend
 npm install
 ```
