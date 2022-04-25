@@ -21,7 +21,12 @@ const AuthContextProvider = (props) => {
     }
   }, []);
 
-  if (loading) return <Loading />;
+  if (loading)
+    return (
+      <div className="min-h-screen grid place-items-center">
+        <Loading />
+      </div>
+    );
 
   return (
     <AuthContext.Provider value={{ user, setUser }}>
